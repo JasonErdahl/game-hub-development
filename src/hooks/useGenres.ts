@@ -9,9 +9,9 @@ export interface Genre {
   image_background: string;
 }
 
-// const useGenres = () => useData<Genre>("/genres");
 const useGenres = () =>
   useQuery({
+    ...genres,
     queryKey: ["genres"],
     queryFn: apiClient.getAll,
     staleTime: 24 * 60 * 60 * 1000, // 24 hours
