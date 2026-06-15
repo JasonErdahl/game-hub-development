@@ -1,19 +1,25 @@
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { useRef } from "react";
-import { BsSearch } from "react-icons/bs"; // Import the missing BsSearch component
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { BsSearch } from "react-icons/bs";
 
-interface Props {
-  onSearch: (searchText: string) => void;
-}
-
-const SearchInput = ({ onSearch }: Props) => {
+const SearchInput = () => {
   const ref = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        if (ref.current) onSearch(ref.current.value);
+        if (ref.current) {
+          const searchText = ref.current.value;
+          if (searchText) {
+            navigate(`/?search=${searchText}`);
+          } else {
+            navigate("/");
+          }
+        }
       }}
     >
       <InputGroup>
@@ -23,6 +29,7 @@ const SearchInput = ({ onSearch }: Props) => {
           borderRadius={20}
           placeholder="Search Games..."
           variant="filled"
+          defaultValue={searchParams.get("search") || ""}
         />
       </InputGroup>
     </form>
