@@ -22,4 +22,6 @@ export default interface Game {
     name: string;
     slug: string;
   };
+  reddit_url?: string;
+  website?: string;
 }

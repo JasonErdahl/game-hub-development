@@ -29,6 +29,7 @@ const SearchInput = () => {
           borderRadius={20}
           placeholder="Search Games..."
           variant="filled"
+          key={searchParams.get("search")} // This forces the input to update when the search param changes
           defaultValue={searchParams.get("search") || ""}
         />
       </InputGroup>
