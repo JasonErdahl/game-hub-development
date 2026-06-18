@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Text } from "@chakra-ui/react";
 
 interface Props {
-  children: string;
+  children?: string;
 }
 
 const ExpandableText = ({ children }: Props) => {

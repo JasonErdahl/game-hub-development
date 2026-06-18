@@ -16,6 +16,7 @@ import GameScreenshots from "../components/GameScreenshots";
 const GameDetailPage = () => {
   const { id } = useParams();
   const { data: game, isLoading, error } = useGame(id!);
+  console.log(game);
 
   if (isLoading) return <Spinner />;
 

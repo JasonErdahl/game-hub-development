@@ -49,13 +49,11 @@ const HomePage = () => {
       <GridItem area="main">
         <Box paddingLeft={2}>
           <GameHeading gameQuery={gameQuery} />
-          <Flex marginBottom={5}>
-            <Box marginRight={5}>
-              <PlatformSelector
-                selectedPlatformId={gameQuery.platformId}
-                onSelectPlatform={(platform) => updateSearchParams("platform", platform.id)}
-              />
-            </Box>
+          <Flex marginBottom={5} flexWrap="wrap" gap={2}>
+            <PlatformSelector
+              selectedPlatformId={gameQuery.platformId}
+              onSelectPlatform={(platform) => updateSearchParams("platform", platform.id)}
+            />
             <SortSelector
               sortOrder={gameQuery.sortOrder}
               onSelectSortOrder={(sortOrder) => updateSearchParams("sort", sortOrder)}

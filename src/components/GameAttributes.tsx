@@ -28,6 +28,9 @@ const GameAttributes = ({ game }: Props) => {
           <Text key={publisher.id}>{publisher.name}</Text>
         ))}
       </DefinitionItem>
+    <DefinitionItem term="ESRB Rating">
+        <Text>{game.esrb_rating?.name}</Text>
+      </DefinitionItem>
     </SimpleGrid>
   );
 };

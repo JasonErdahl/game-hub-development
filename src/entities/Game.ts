@@ -10,11 +10,16 @@ export default interface Game {
   id: number;
   slug: string;
   name: string;
-  description_raw: string;
+  description_raw?: string;
   background_image: string;
-  parent_platforms: { platform: Platform }[];
-  metacritic: number;
+  parent_platforms?: { platform: Platform }[];
+  metacritic?: number;
   rating_top: number;
-  genres: Genre[];
-  publishers: Publisher[];
+  genres?: Genre[];
+  publishers?: Publisher[];
+  esrb_rating?: {
+    id: number;
+    name: string;
+    slug: string;
+  };
 }
